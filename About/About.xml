@@ -4,10 +4,6 @@
 	<author>Dingo</author>
 	<packageId>Dingo.QuickUpload</packageId>
 	<description>Some added sanity for updating RimWorld mods. Probably never put this on Steam.</description>
-	<url></url>
-	<supportedVersions>
-		<li>1.1</li>
-	</supportedVersions>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>

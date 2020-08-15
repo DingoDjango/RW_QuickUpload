@@ -55,7 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Harmony\Assemblies\0Harmony.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Harmony\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -107,11 +107,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)"
+    <PostBuildEvent>SET MODDIR=C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)
+SET ZIPFILE=D:\Downloads\$(ProjectName).zip
 
-xcopy "$(ProjectDir)About" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\About" /i /e /r /y
+mkdir "%25MODDIR%25"
 
-xcopy "$(ProjectDir)Assemblies" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\$(ProjectName)\Assemblies" /i /e /r /y
+
+xcopy "$(ProjectDir)About" "%25MODDIR%25\About" /i /e /r /y
+
+xcopy "$(ProjectDir)Assemblies" "%25MODDIR%25\Assemblies" /i /e /r /y
+
+7z a -mx9 "%25ZIPFILE%25" "%25MODDIR%25"
 
 cd $(ProjectDir)
 del /f /s /q bin

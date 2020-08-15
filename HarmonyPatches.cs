@@ -46,7 +46,7 @@ namespace Quick_Upload
 				if (Settings.TagWorkshopTitle)
 				{
 					int majorVer = 1;
-					int minorVer = 1;
+					int minorVer = 2;
 
 					List<Version> supportedVersions = __instance.SupportedVersionsReadOnly;
 
